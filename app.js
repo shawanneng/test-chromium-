@@ -1,5 +1,6 @@
 // pkg -t win app.js --public
-const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer-core');
+const findChrome = require('./node_modules/carlo/lib/find_chrome');
 // const portfinder = require('portfinder');
 const express = require('express');
 const app = express();
@@ -46,6 +47,8 @@ app.use('/', router);
 
 //以下是爬取区
 async function puppeteerPlay({ url }) {
+  let findChromePath = await findChrome({});
+  let executablePath = findChromePath.executablePath;
   const browser = await puppeteer.launch({
     headless: true,
     ignoreDefaultArgs: ['--disable-extensions'],
@@ -61,6 +64,7 @@ async function puppeteerPlay({ url }) {
       '--disable-web-security',
       '--user-agent= Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36',
     ],
+    executablePath,
   });
   const page = await browser.newPage();
   await page.setViewport({ width: 1920, height: 1080 });
