@@ -1,0 +1,26 @@
+{
+  "name": "threaddouyin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "carlo": "^0.9.46",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "jsdom": "^20.0.0",
+    "playwright": "^1.27.1",
+    "portfinder": "^1.0.32",
+    "puppeteer": "^19.2.0"
+  },
+  "icon": "index.ico",
+  "devDependencies": {
+    "inquirer": "^9.1.0"
+  }
+}
